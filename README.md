@@ -8,4 +8,4 @@
 ## Ссылки на проект
 
 IP-адрес 158.160.72.91
-Backend 
+Backend api.elem.nomoredomainsicu.ru

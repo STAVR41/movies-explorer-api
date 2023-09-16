@@ -20,7 +20,10 @@ function updateProfile(req, res, next) {
     });
 }
 function logout(req, res) {
-  res.clearCookie('jwt');
+  res.clearCookie('jwt', {
+    sameSite: 'none',
+    secure: true,
+  });
   res.send({ message: 'Cookie delete' });
 }
 module.exports = {

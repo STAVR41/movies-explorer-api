@@ -12,8 +12,7 @@ function authentication(req, res, next) {
       res.cookie('jwt', token, {
         maxAge: 604800,
         httpOnly: true,
-        sameSite: 'none',
-        secure: true,
+        sameSite: true,
       });
       return res.send({ id: login._id, email: login.email, name: login.name });
     })

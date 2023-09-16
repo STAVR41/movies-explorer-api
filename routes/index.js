@@ -10,7 +10,7 @@ router.use(limiter);
 router.use(usersRouter);
 router.use(moviesRouter);
 router.use((req, res, next) => {
-	next(new NotFoundError('Маршрут не найден'));
+  next(new NotFoundError('Маршрут не найден'));
 });
 
 module.exports = router;

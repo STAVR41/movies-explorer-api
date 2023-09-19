@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const NotFoundError = require('../utils/errors/notFoundError');
 const ValidationError = require('../utils/errors/validationError');
+const ConflictError = require('../utils/errors/conflictError');
 
 function getCurrentUser(req, res, next) {
   const { _id } = req.user;
@@ -16,6 +17,7 @@ function updateProfile(req, res, next) {
     .then((user) => res.send({ data: user }))
     .catch((err) => {
       if (err.name === 'ValidationError') return next(new ValidationError('Некорректные данные'));
+      if (err.code === 11000) return next(new ConflictError('Пользователь с таким Email уже существует'));
       return next(err);
     });
 }

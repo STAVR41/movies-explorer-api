@@ -23,7 +23,7 @@ const validateUpdateProfileUser = celebrate({
 });
 const validateId = celebrate({
   params: Joi.object().keys({
-    id: Joi.string().length(24).hex().required(),
+    id: Joi.string().length(24).hex(),
   }),
 });
 const validateCreateMovie = celebrate({

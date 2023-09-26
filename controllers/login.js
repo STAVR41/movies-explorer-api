@@ -10,7 +10,7 @@ function authentication(req, res, next) {
     .then((login) => {
       const token = jwt.sign({ _id: login._id }, NODE_ENV === 'production' ? JWT_SECRET : JWT_SECRET_KEY, { expiresIn: '7d' });
       res.cookie('jwt', token, {
-        maxAge: 604800,
+        maxAge: 3600000 * 24 * 7,
         httpOnly: true,
         sameSite: 'none',
         secure: true,
